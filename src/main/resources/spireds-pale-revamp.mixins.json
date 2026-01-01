@@ -3,7 +3,7 @@
 	"package": "spred.spiredspalerevamp.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"CreakingEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
