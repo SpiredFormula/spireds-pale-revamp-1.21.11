@@ -1,3 +1,5 @@
 {
-  "spiredsPaleRevampGroup.spireds-pale-revamp": "Spired's Pale Revamp"
+  "spiredsPaleRevampGroup.spireds-pale-revamp": "Spired's Pale Revamp",
+  "spiredsPaleRevampContainer.paleChest": "Pale Chest",
+  "block.spireds-pale-revamp.pale_chest": "Pale Chest"
 }

@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spred.spiredspalerevamp.block.ModBlocks;
+import spred.spiredspalerevamp.entity.ModBlockEntities;
 import spred.spiredspalerevamp.item.ModItems;
 import spred.spiredspalerevamp.util.ModTags;
 
@@ -21,6 +22,7 @@ public class SpiredsPaleRevamp implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+		ModBlockEntities.initialize();
 		ModTags.initialize();
 		ModBlocks.initialize();
 		ModItems.initialize();

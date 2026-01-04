@@ -3,9 +3,13 @@ package spred.spiredspalerevamp.datagen;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
+import net.minecraft.client.render.item.model.special.ChestModelRenderer;
+import net.minecraft.util.Identifier;
+import spred.spiredspalerevamp.block.ModBlocks;
 
 public class ModModelProvider extends FabricModelProvider {
 
@@ -16,6 +20,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerChest(ModBlocks.PALE_CHEST, Blocks.PALE_OAK_PLANKS, Identifier.of("spireds-pale-revamp", "pale_chest"), false);
     }
 
 

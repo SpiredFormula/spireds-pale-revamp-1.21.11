@@ -13,6 +13,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import spred.spiredspalerevamp.SpiredsPaleRevamp;
+import spred.spiredspalerevamp.block.ModBlocks;
 
 import java.util.function.Function;
 
@@ -36,7 +37,7 @@ public class ModItems {
     public static void initialize( ){
         Registry.register(Registries.ITEM_GROUP, SPIREDS_PALE_REVAMP_GROUP_KEY, SPIREDS_PALE_REVAMP_GROUP);
         ItemGroupEvents.modifyEntriesEvent(SPIREDS_PALE_REVAMP_GROUP_KEY).register(itemGroup -> {
-
+            itemGroup.add(ModBlocks.PALE_CHEST.asItem());
         });
 
     }
