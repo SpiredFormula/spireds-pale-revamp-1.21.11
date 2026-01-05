@@ -1,5 +1,6 @@
 {
   "spiredsPaleRevampGroup.spireds-pale-revamp": "Spired's Pale Revamp",
-  "spiredsPaleRevampContainer.paleChest": "Pale Chest",
-  "block.spireds-pale-revamp.pale_chest": "Pale Chest"
+  "block.spireds-pale-revamp.pale_chest": "Pale Chest",
+  "spireds-pale-revamp.pale_chest_message": "Chest Locked!",
+  "spireds-pale-revamp.pale_chest_container_name": "Pale Chest"
 }
