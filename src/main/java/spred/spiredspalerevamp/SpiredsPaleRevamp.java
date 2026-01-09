@@ -27,5 +27,6 @@ public class SpiredsPaleRevamp implements ModInitializer {
 		ModBlocks.initialize();
 		ModItems.initialize();
 		LOGGER.info("Hello Fabric world!");
+
 	}
 }
