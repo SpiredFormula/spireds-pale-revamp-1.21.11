@@ -1,10 +1,11 @@
 package spred.spiredspalerevamp;
 
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
+import spred.spiredspalerevamp.config.ModConfig;
 import spred.spiredspalerevamp.entity.ModBlockEntities;
 import spred.spiredspalerevamp.render.PaleChestBlockEntityRenderer;
 
@@ -16,7 +17,7 @@ public class SpiredsPaleRevampClient implements ClientModInitializer {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 
 		BlockEntityRendererFactories.register(ModBlockEntities.PALE_CHEST, PaleChestBlockEntityRenderer::new);
-
+		AutoConfig.register(ModConfig.class, Toml4jConfigSerializer::new);
 
 
 	}

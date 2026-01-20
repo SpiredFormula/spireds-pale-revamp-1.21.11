@@ -3,15 +3,15 @@
 	"id": "spireds-pale-revamp",
 	"version": "${version}",
 	"name": "Spired's Pale Revamp",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A minecraft mod that redesigns the pale garden biome to act more like the deep dark",
 	"authors": [
-		"Me!"
+		"Spired"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/SpiredFormula/spireds-pale-revamp-1.21.11"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/spireds-pale-revamp/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -23,6 +23,9 @@
 		],
 		"fabric-datagen": [
 			"spred.spiredspalerevamp.SpiredsPaleRevampDataGenerator"
+		],
+		"modmenu": [
+			"spred.spiredspalerevamp.config.ConfigModMenuIntegration"
 		]
 	},
 	"mixins": [

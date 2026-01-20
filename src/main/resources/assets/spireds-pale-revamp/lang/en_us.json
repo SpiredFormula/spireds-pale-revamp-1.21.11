@@ -2,5 +2,7 @@
   "spiredsPaleRevampGroup.spireds-pale-revamp": "Spired's Pale Revamp",
   "block.spireds-pale-revamp.pale_chest": "Pale Chest",
   "spireds-pale-revamp.pale_chest_message": "Chest Locked!",
-  "spireds-pale-revamp.pale_chest_container_name": "Pale Chest"
+  "spireds-pale-revamp.pale_chest_container_name": "Pale Chest",
+  "text.autoconfig.spireds-pale-revamp.title": "Spired's Pale Revamp",
+  "text.autoconfig.spireds-pale-revamp.option.PaleGardenFog": "Pale Garden Fog"
 }
