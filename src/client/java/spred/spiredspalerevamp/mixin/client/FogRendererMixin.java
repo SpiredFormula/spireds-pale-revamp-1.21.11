@@ -13,6 +13,7 @@ import net.minecraft.client.render.fog.FogModifier;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeKeys;
@@ -49,10 +50,14 @@ public class FogRendererMixin {
 
         MinecraftClient clientInstance = MinecraftClient.getInstance();
         ClientPlayerEntity player = clientInstance.player;
+
         if(player == null || clientInstance.world == null){
             return;
         }
-        RegistryEntry<Biome> currentBiome = clientInstance.world.getBiome(player.getBlockPos());
+
+        BlockPos playerBlockPosition = player.getBlockPos();
+        RegistryEntry<Biome> currentBiome = clientInstance.world.getBiome(playerBlockPosition);
+
 
         if(!currentBiome.matchesKey(BiomeKeys.PALE_GARDEN) && lerpProgress <= 0) {
             return;
@@ -69,7 +74,7 @@ public class FogRendererMixin {
         float paleEnvironmentEnd = 25f;
 
 
-        if(currentBiome.matchesKey(BiomeKeys.PALE_GARDEN)){
+        if(currentBiome.matchesKey(BiomeKeys.PALE_GARDEN) && playerBlockPosition.getY() > 50){
 
             fogData.environmentalStart = MathHelper.lerp(this.lerpProgress, startingEnvironmentStart, paleEnvironmentStart);
             fogData.environmentalEnd = MathHelper.lerp(this.lerpProgress, startingEnvironmentEnd, paleEnvironmentEnd);
