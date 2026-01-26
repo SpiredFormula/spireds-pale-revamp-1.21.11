@@ -3,7 +3,7 @@
   "type": "minecraft:jigsaw",
 
   "":" the path to the template pool json file to use",
-  "start_pool": "spireds-pale-revamp:test_structure/start_pool",
+  "start_pool": "spireds-pale-revamp:pale_ruin_small/start_pool",
 
   "":" This is how many pieces away from the starting piece a piece of the structure can spawn",
   "":" Think of it like the length of the branch of the structure",
@@ -18,7 +18,7 @@
   },
 
   "":" The biome tag to use for what biomes that this structure can spawn in",
-  "biomes": "#spireds-pale-revamp:has_structure/test_structure",
+  "biomes": "#spireds-pale-revamp:has_structure/pale_ruin_small",
 
   "":" The generation step for when to generate the structure. there are 10 stages you can pick from!",
   "":" This surface structure stage places the structure before plants and ores are generated",
