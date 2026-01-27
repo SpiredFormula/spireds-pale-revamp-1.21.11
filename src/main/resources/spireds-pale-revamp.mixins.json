@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "spred.spiredspalerevamp.mixin",
+	"package": "spired.spiredspalerevamp.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"CreakingEntityMixin"

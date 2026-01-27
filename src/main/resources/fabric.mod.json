@@ -16,16 +16,16 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"spred.spiredspalerevamp.SpiredsPaleRevamp"
+			"spired.spiredspalerevamp.SpiredsPaleRevamp"
 		],
 		"client": [
-			"spred.spiredspalerevamp.SpiredsPaleRevampClient"
+			"spired.spiredspalerevamp.SpiredsPaleRevampClient"
 		],
 		"fabric-datagen": [
-			"spred.spiredspalerevamp.SpiredsPaleRevampDataGenerator"
+			"spired.spiredspalerevamp.SpiredsPaleRevampDataGenerator"
 		],
 		"modmenu": [
-			"spred.spiredspalerevamp.config.ConfigModMenuIntegration"
+			"spired.spiredspalerevamp.config.ConfigModMenuIntegration"
 		]
 	},
 	"mixins": [
