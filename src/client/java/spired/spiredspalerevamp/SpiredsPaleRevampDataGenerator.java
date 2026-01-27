@@ -14,6 +14,7 @@ public class SpiredsPaleRevampDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModRecipeProvider::new);
 		pack.addProvider(ModRegistryDataGenerator::new);
 		pack.addProvider(ModModelProvider::new);
+		pack.addProvider(ModChestLootTableProvider::new);
 	}
 
 //	@Override

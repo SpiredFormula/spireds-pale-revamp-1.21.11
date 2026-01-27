@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_sword"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 5.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 2.0
+    }
+  ]
+}
