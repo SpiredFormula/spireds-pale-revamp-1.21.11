@@ -6,7 +6,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 import org.jspecify.annotations.Nullable;
+import spired.spiredspalerevamp.block.custom.PaleChestBlock;
 import spired.spiredspalerevamp.entity.ModBlockEntities;
 
 public class PaleChestEntity extends ChestBlockEntity implements SidedInventory {
@@ -23,12 +25,18 @@ public class PaleChestEntity extends ChestBlockEntity implements SidedInventory 
     public void onBlockReplaced(BlockPos pos, BlockState oldState) {
         // TODO don't make this hard codded and implement BlockStates ((https://docs.fabricmc.net/develop/blocks/blockstates))
         // Stop items from dropping when the chest is locked during tha day time
+
         if(world != null){
-            if(world.getTimeOfDay() <= 13000){
+
+//            if(!oldState.get(PaleChestBlock.OPENABLE)){
+//                return;
+//            }
+            if(!world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, pos)){
                 return;
             }
         }
         super.onBlockReplaced(pos, oldState);
+
 
     }
 

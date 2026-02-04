@@ -8,8 +8,10 @@ import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.FilledMapItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.map.MapDecorationType;
 import net.minecraft.item.map.MapDecorationTypes;
 import net.minecraft.item.map.MapState;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.StructureTags;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
@@ -24,6 +26,7 @@ import org.slf4j.LoggerFactory;
 import spired.spiredspalerevamp.block.ModBlocks;
 import spired.spiredspalerevamp.entity.ModBlockEntities;
 import spired.spiredspalerevamp.item.ModItems;
+import spired.spiredspalerevamp.util.ModMapDecorationTypes;
 import spired.spiredspalerevamp.util.ModTags;
 
 import java.util.Optional;
@@ -45,19 +48,22 @@ public class SpiredsPaleRevamp implements ModInitializer {
 		ModTags.initialize();
 		ModBlocks.initialize();
 		ModItems.initialize();
+		ModMapDecorationTypes.initialize();
+
+
 
 
 		// TODO moved to separate class
-		TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 1, factories -> {
+		TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> {
 			factories.add((world, entity, random) -> {
 				BlockPos structurePos = world.locateStructure(ModTags.ON_PALE_EXPLORER_MAPS, entity.getBlockPos(),  100, true);
-				int price = 1;
+				int price = 18;
 				int maxUses = 12;
 				int experience = 30;
 				if(structurePos != null){
 					ItemStack map = FilledMapItem.createMap(world, structurePos.getX(), structurePos.getZ(), (byte)2, true, true);
 					FilledMapItem.fillExplorationMap(world, map);
-					MapState.addDecorationsNbt(map, structurePos, "+", MapDecorationTypes.TRIAL_CHAMBERS);
+					MapState.addDecorationsNbt(map, structurePos, "+", ModMapDecorationTypes.PALE_RUIN);
 					map.set(DataComponentTypes.ITEM_NAME, Text.translatable("filled_map.custom"));
 					return new TradeOffer(new TradedItem(Items.EMERALD, price), Optional.of(new TradedItem(Items.COMPASS)), map, maxUses, experience, 0.2F);
 				}
