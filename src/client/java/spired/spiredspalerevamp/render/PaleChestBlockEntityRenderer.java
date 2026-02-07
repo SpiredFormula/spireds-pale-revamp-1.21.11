@@ -1,6 +1,7 @@
 package spired.spiredspalerevamp.render;
 
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.LidOpenable;
 import net.minecraft.block.enums.ChestType;
@@ -12,6 +13,7 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.block.entity.ChestBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.model.ChestBlockModel;
 import net.minecraft.client.render.block.entity.state.ChestBlockEntityRenderState;
+import net.minecraft.client.render.command.ModelCommandRenderer;
 import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.render.state.CameraRenderState;
@@ -21,7 +23,10 @@ import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.RotationAxis;
+import net.minecraft.util.math.Vec3d;
+import org.jspecify.annotations.Nullable;
 import spired.spiredspalerevamp.SpiredsPaleRevamp;
+import spired.spiredspalerevamp.block.custom.PaleChestBlock;
 
 import static net.minecraft.client.render.TexturedRenderLayers.CHEST_ATLAS_TEXTURE;
 
@@ -30,6 +35,7 @@ public class PaleChestBlockEntityRenderer<T extends BlockEntity & LidOpenable> e
     private final ChestBlockModel singleChest;
     private final ChestBlockModel doubleChestLeft;
     private final ChestBlockModel doubleChestRight;
+    private static boolean openable = false;
 
 
     public PaleChestBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
@@ -39,6 +45,24 @@ public class PaleChestBlockEntityRenderer<T extends BlockEntity & LidOpenable> e
         this.singleChest = new ChestBlockModel(context.getLayerModelPart(EntityModelLayers.CHEST));
         this.doubleChestLeft = new ChestBlockModel(context.getLayerModelPart(EntityModelLayers.DOUBLE_CHEST_LEFT));
         this.doubleChestRight = new ChestBlockModel(context.getLayerModelPart(EntityModelLayers.DOUBLE_CHEST_RIGHT));
+
+    }
+
+    @Override
+    public void updateRenderState(
+            T blockEntity,
+            ChestBlockEntityRenderState chestBlockEntityRenderState,
+            float f,
+            Vec3d vec3d,
+            ModelCommandRenderer.@Nullable CrumblingOverlayCommand crumblingOverlayCommand
+    ){
+        super.updateRenderState(blockEntity, chestBlockEntityRenderState, f, vec3d, crumblingOverlayCommand);
+
+        BlockState state = blockEntity.getWorld().getBlockState(blockEntity.getPos());
+
+        if(state != null){
+            openable = state.get(PaleChestBlock.OPENABLE) == true;
+        }
 
     }
 
@@ -104,11 +128,20 @@ public class PaleChestBlockEntityRenderer<T extends BlockEntity & LidOpenable> e
     private static SpriteIdentifier createChestTextureId(ChestType type) {
         switch (type) {
             case LEFT:
+                if (openable){
+                    return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, Identifier.of(SpiredsPaleRevamp.MOD_ID,"entity/chest/pale_chest_left_openable"));
+                }
                 return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, Identifier.of(SpiredsPaleRevamp.MOD_ID,"entity/chest/pale_chest_left"));
             case RIGHT:
+                if (openable){
+                    return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, Identifier.of(SpiredsPaleRevamp.MOD_ID,"entity/chest/pale_chest_right_openable"));
+                }
                 return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, Identifier.of(SpiredsPaleRevamp.MOD_ID,"entity/chest/pale_chest_right"));
             case SINGLE:
             default:
+                if (openable){
+                    return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, Identifier.of(SpiredsPaleRevamp.MOD_ID,"entity/chest/pale_chest_openable"));
+                }
                 return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, Identifier.of(SpiredsPaleRevamp.MOD_ID,"entity/chest/pale_chest"));
         }
     }

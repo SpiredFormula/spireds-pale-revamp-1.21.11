@@ -41,48 +41,30 @@ public class PaleChestBlock extends ChestBlock {
     }
 
     @Override
-    protected BlockState getStateForNeighborUpdate(
-            BlockState state,
-            WorldView world,
-            ScheduledTickView tickView,
-            BlockPos pos,
-            Direction direction,
-            BlockPos neighborPos,
-            BlockState neighborState,
-            Random random
-    ) {
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
 
-        return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
-    }
-
-    @Override
-    protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        super.scheduledTick(state, world, pos, random);
-        if(!world.isClient()){
-            if(world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, pos)){
-
-                state.with(OPENABLE, true);
-            }
-            else{
-                state.with(OPENABLE, false);
-            }
+        if(world.isClient()){
+            return validateTicker(type, this.getExpectedEntityType(), ChestBlockEntity::clientTick);
         }
-
-
+        else{
+            return validateTicker(type, this.getExpectedEntityType(), PaleChestEntity::tick);
+        }
     }
+
+
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         world.scheduleBlockTick(pos, this, 1);
 
         // Prevents the Chest from being open during the daytime
-//        if(!world.isClient() && !state.get(OPENABLE)){
-//            player.sendMessage(Text.translatable("spireds-pale-revamp.pale_chest_message"), true);
-//            return ActionResult.SUCCESS;
-//        }
-
-        if(!world.isClient() && !world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, pos)){
+        if(!world.isClient() && !state.get(OPENABLE)){
             player.sendMessage(Text.translatable("spireds-pale-revamp.pale_chest_message"), true);
             return ActionResult.SUCCESS;
         }
+
+//        if(!world.isClient() && !world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, pos)){
+//            player.sendMessage(Text.translatable("spireds-pale-revamp.pale_chest_message"), true);
+//            return ActionResult.SUCCESS;
+//        }
         return super.onUse(state, world, pos, player, hit);
     }
 }

@@ -6,8 +6,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 import net.minecraft.world.attribute.EnvironmentAttributes;
 import org.jspecify.annotations.Nullable;
+import spired.spiredspalerevamp.SpiredsPaleRevamp;
 import spired.spiredspalerevamp.block.custom.PaleChestBlock;
 import spired.spiredspalerevamp.entity.ModBlockEntities;
 
@@ -28,10 +30,7 @@ public class PaleChestEntity extends ChestBlockEntity implements SidedInventory 
 
         if(world != null){
 
-//            if(!oldState.get(PaleChestBlock.OPENABLE)){
-//                return;
-//            }
-            if(!world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, pos)){
+            if(!oldState.get(PaleChestBlock.OPENABLE)){
                 return;
             }
         }
@@ -56,4 +55,15 @@ public class PaleChestEntity extends ChestBlockEntity implements SidedInventory 
     }
 
 
+    public static void tick(World world, BlockPos blockPos, BlockState blockState, ChestBlockEntity chestBlockEntity) {
+
+
+
+        if(world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, blockPos)){
+           world.setBlockState(blockPos, blockState.with(PaleChestBlock.OPENABLE, true));
+        }
+        else{
+            world.setBlockState(blockPos, blockState.with(PaleChestBlock.OPENABLE, false));
+        }
+    }
 }
