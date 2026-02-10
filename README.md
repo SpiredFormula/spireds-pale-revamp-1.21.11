@@ -6,3 +6,7 @@ Change log (so far)
 - Added fog to the Pale Garden biome (can be turned off in the config menu)
 - Mobs no longer spawn in the pale garden biome
 
+TODO
+- Add sounds and proper textures to the Pale Chest
+- Figure out how to increase the size that Pale Gardens are generated without breaking mod compatibility
+- Add more structures and create some sort of dungeon that uses the Creakings mechanics
