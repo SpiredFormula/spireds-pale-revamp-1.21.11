@@ -28,7 +28,6 @@ public class PaleChestEntity extends ChestBlockEntity implements SidedInventory 
     }
     @Override
     public void onBlockReplaced(BlockPos pos, BlockState oldState) {
-        // TODO don't make this hard codded and implement BlockStates ((https://docs.fabricmc.net/develop/blocks/blockstates))
         // Stop items from dropping when the chest is locked during tha day time
 
         if(world != null){
