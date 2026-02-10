@@ -3,6 +3,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -55,15 +58,18 @@ public class PaleChestEntity extends ChestBlockEntity implements SidedInventory 
     }
 
 
-    public static void tick(World world, BlockPos blockPos, BlockState blockState, ChestBlockEntity chestBlockEntity) {
+    public static void tick(World world, BlockPos blockPos, BlockState blockState, ChestBlockEntity blockEntity) {
 
 
 
-        if(world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, blockPos)){
+        if(world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, blockPos) && blockState.get(PaleChestBlock.OPENABLE) == false){
            world.setBlockState(blockPos, blockState.with(PaleChestBlock.OPENABLE, true));
+           world.playSound(null, blockPos, SoundEvents.BLOCK_CREAKING_HEART_SPAWN, SoundCategory.PLAYERS, 1f, 1f);
+
         }
-        else{
+        else if(!world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, blockPos) && blockState.get(PaleChestBlock.OPENABLE) == true){
             world.setBlockState(blockPos, blockState.with(PaleChestBlock.OPENABLE, false));
+            world.playSound(null, blockPos, SoundEvents.BLOCK_CREAKING_HEART_FALL, SoundCategory.PLAYERS, 1f, 1f);
         }
     }
 }
