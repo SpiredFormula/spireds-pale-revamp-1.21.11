@@ -28,6 +28,7 @@ import spired.spiredspalerevamp.entity.ModBlockEntities;
 import spired.spiredspalerevamp.item.ModItems;
 import spired.spiredspalerevamp.util.ModMapDecorationTypes;
 import spired.spiredspalerevamp.util.ModTags;
+import spired.spiredspalerevamp.util.ModVillagerTrades;
 
 import java.util.Optional;
 
@@ -49,30 +50,7 @@ public class SpiredsPaleRevamp implements ModInitializer {
 		ModBlocks.initialize();
 		ModItems.initialize();
 		ModMapDecorationTypes.initialize();
-
-
-
-
-		// TODO moved to separate class
-		TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> {
-			factories.add((world, entity, random) -> {
-				BlockPos structurePos = world.locateStructure(ModTags.ON_PALE_EXPLORER_MAPS, entity.getBlockPos(),  100, true);
-				int price = 18;
-				int maxUses = 12;
-				int experience = 30;
-				if(structurePos != null){
-					ItemStack map = FilledMapItem.createMap(world, structurePos.getX(), structurePos.getZ(), (byte)2, true, true);
-					FilledMapItem.fillExplorationMap(world, map);
-					MapState.addDecorationsNbt(map, structurePos, "+", ModMapDecorationTypes.PALE_RUIN);
-					map.set(DataComponentTypes.ITEM_NAME, Text.translatable("filled_map.custom"));
-					return new TradeOffer(new TradedItem(Items.EMERALD, price), Optional.of(new TradedItem(Items.COMPASS)), map, maxUses, experience, 0.2F);
-				}
-				else{
-					return null;
-				}
-			});
-
-		});
+		ModVillagerTrades.initialize();
 		LOGGER.info("Hello Fabric world!");
 
 
