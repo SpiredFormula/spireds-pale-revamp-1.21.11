@@ -61,10 +61,6 @@ public class PaleChestBlock extends ChestBlock {
             return ActionResult.SUCCESS;
         }
 
-//        if(!world.isClient() && !world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, pos)){
-//            player.sendMessage(Text.translatable("spireds-pale-revamp.pale_chest_message"), true);
-//            return ActionResult.SUCCESS;
-//        }
         return super.onUse(state, world, pos, player, hit);
     }
 }

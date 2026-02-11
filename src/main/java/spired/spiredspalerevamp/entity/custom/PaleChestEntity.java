@@ -3,6 +3,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -28,11 +29,13 @@ public class PaleChestEntity extends ChestBlockEntity implements SidedInventory 
     }
     @Override
     public void onBlockReplaced(BlockPos pos, BlockState oldState) {
+
         // Stop items from dropping when the chest is locked during tha day time
-
-        if(world != null){
-
+        if(this.world != null){
             if(!oldState.get(PaleChestBlock.OPENABLE)){
+
+                if(!this.world.isClient()) this.world.playSound(null, pos, SoundEvents.BLOCK_CREAKING_HEART_BREAK, SoundCategory.PLAYERS, 1f, 1f);
+
                 return;
             }
         }
@@ -59,12 +62,9 @@ public class PaleChestEntity extends ChestBlockEntity implements SidedInventory 
 
     public static void tick(World world, BlockPos blockPos, BlockState blockState, ChestBlockEntity blockEntity) {
 
-
-
         if(world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, blockPos) && blockState.get(PaleChestBlock.OPENABLE) == false){
            world.setBlockState(blockPos, blockState.with(PaleChestBlock.OPENABLE, true));
            world.playSound(null, blockPos, SoundEvents.BLOCK_CREAKING_HEART_SPAWN, SoundCategory.PLAYERS, 1f, 1f);
-
         }
         else if(!world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.CREAKING_ACTIVE_GAMEPLAY, blockPos) && blockState.get(PaleChestBlock.OPENABLE) == true){
             world.setBlockState(blockPos, blockState.with(PaleChestBlock.OPENABLE, false));
