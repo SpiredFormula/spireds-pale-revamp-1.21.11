@@ -29,6 +29,24 @@
         "":" It's only for old Vanilla Jigsaw Structures so don't use it. Stick with non-legacy.",
         "element_type": "minecraft:single_pool_element"
       }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "spireds-pale-revamp:pale_ruin_small_well",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "spireds-pale-revamp:pale_ruin_small_statue",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
     }
   ]
 }
