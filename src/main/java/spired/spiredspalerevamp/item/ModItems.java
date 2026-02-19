@@ -2,10 +2,7 @@ package spired.spiredspalerevamp.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -35,9 +32,8 @@ public class ModItems {
     }
 
     public static void initialize( ){
-        Registry.register(Registries.ITEM_GROUP, SPIREDS_PALE_REVAMP_GROUP_KEY, SPIREDS_PALE_REVAMP_GROUP);
-        ItemGroupEvents.modifyEntriesEvent(SPIREDS_PALE_REVAMP_GROUP_KEY).register(itemGroup -> {
-            itemGroup.add(ModBlocks.PALE_CHEST.asItem());
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(itemGroup -> {
+            itemGroup.addAfter( Items.ENDER_CHEST, ModBlocks.PALE_CHEST.asItem());
         });
 
     }

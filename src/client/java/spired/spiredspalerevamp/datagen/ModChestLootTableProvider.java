@@ -38,10 +38,16 @@ public class ModChestLootTableProvider extends SimpleFabricLootTableProvider {
                         .with(ItemEntry.builder(Items.DIAMOND).weight(5).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 7.0F))))
                         .with(ItemEntry.builder(Items.IRON_INGOT).weight(10).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0F, 8.0F))))
                         .with(ItemEntry.builder(Items.GOLD_INGOT).weight(15).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 7.0F))))
+                        .with(ItemEntry.builder(Items.SADDLE).weight(3))
+                        .with(ItemEntry.builder(Items.COPPER_HORSE_ARMOR))
+                        .with(ItemEntry.builder(Items.IRON_HORSE_ARMOR))
+                        .with(ItemEntry.builder(Items.GOLDEN_HORSE_ARMOR))
+                        .with(ItemEntry.builder(Items.DIAMOND_HORSE_ARMOR))
                         .with(
                                 ItemEntry.builder(Items.DIAMOND_SWORD)
                                         .weight(1)
                                         .apply(EnchantWithLevelsLootFunction.builder(registries, UniformLootNumberProvider.create(0.0F, 19.0F)))
+
                         )
                         .with(
                                 ItemEntry.builder(Items.DIAMOND_SPEAR)
