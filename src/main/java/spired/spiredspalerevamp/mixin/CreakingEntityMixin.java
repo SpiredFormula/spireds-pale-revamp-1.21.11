@@ -21,8 +21,8 @@ public abstract class CreakingEntityMixin {
         cir.setReturnValue(HostileEntity.createHostileAttributes()
                 .add(EntityAttributes.MAX_HEALTH, 1.0)
                 .add(EntityAttributes.MOVEMENT_SPEED, 0.4F)
-                .add(EntityAttributes.ATTACK_DAMAGE, 30)
-                .add(EntityAttributes.FOLLOW_RANGE, 32.0)
+                .add(EntityAttributes.ATTACK_DAMAGE, 25)
+                .add(EntityAttributes.FOLLOW_RANGE, 40.0)
                 .add(EntityAttributes.STEP_HEIGHT, 1.0625));
     }
     // Suppress the step sounds
