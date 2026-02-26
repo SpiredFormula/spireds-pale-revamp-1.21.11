@@ -26,8 +26,8 @@ public abstract class CreakingEntityMixin {
                 .add(EntityAttributes.STEP_HEIGHT, 1.0625));
     }
     // Suppress the step sounds
-    @Inject(at = @At("HEAD"), method = "playStepSound", cancellable = true)
-    private void removeStepSound(BlockPos pos, BlockState state, CallbackInfo ci){
-        ci.cancel();
-    }
+//    @Inject(at = @At("HEAD"), method = "playStepSound", cancellable = true)
+//    private void removeStepSound(BlockPos pos, BlockState state, CallbackInfo ci){
+//        ci.cancel();
+//    }
 }

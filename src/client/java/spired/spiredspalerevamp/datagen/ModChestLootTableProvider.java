@@ -34,51 +34,17 @@ public class ModChestLootTableProvider extends SimpleFabricLootTableProvider {
         return LootTable.builder()
                 .pool(LootPool.builder()
                         .rolls(UniformLootNumberProvider.create(2.0f, 6.0f))
-                        .with(ItemEntry.builder(Items.EMERALD).weight(4).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 6.0f))))
-                        .with(ItemEntry.builder(Items.DIAMOND).weight(2).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 7.0F))))
-                        .with(ItemEntry.builder(Items.IRON_INGOT).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0F, 8.0F))))
-                        .with(ItemEntry.builder(Items.GOLD_INGOT).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 7.0F))))
+                        .with(ItemEntry.builder(Items.EMERALD).weight(3).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 6.0f))))
+                        .with(ItemEntry.builder(Items.DIAMOND).weight(3).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 7.0F))))
+                        .with(ItemEntry.builder(Items.IRON_INGOT).weight(4).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0F, 8.0F))))
+                        .with(ItemEntry.builder(Items.GOLD_INGOT).weight(4).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 7.0F))))
                         .with(ItemEntry.builder(Items.SADDLE).weight(3))
                         .with(ItemEntry.builder(Items.COPPER_HORSE_ARMOR))
                         .with(ItemEntry.builder(Items.IRON_HORSE_ARMOR))
                         .with(ItemEntry.builder(Items.GOLDEN_HORSE_ARMOR))
                         .with(ItemEntry.builder(Items.DIAMOND_HORSE_ARMOR))
-                        .with(ItemEntry.builder(Items.BOOK).weight(5).apply(EnchantWithLevelsLootFunction.builder(registries, UniformLootNumberProvider.create(20.0F, 30.0F))))
-                        .with(
-                                ItemEntry.builder(Items.IRON_SWORD)
-                                        .weight(3)
-                                        .apply(EnchantWithLevelsLootFunction.builder(registries, UniformLootNumberProvider.create(10.0F, 29.0F)))
-                        )
-                        .with(
-                                ItemEntry.builder(Items.IRON_BOOTS)
-                                        .weight(3)
-                                        .apply(EnchantWithLevelsLootFunction.builder(registries, UniformLootNumberProvider.create(10.0F, 29.0F)))
-                        )
-                        .with(
-                                ItemEntry.builder(Items.IRON_CHESTPLATE)
-                                        .weight(3)
-                                        .apply(EnchantWithLevelsLootFunction.builder(registries, UniformLootNumberProvider.create(10.0F, 29.0F)))
-                        )
-                        .with(
-                                ItemEntry.builder(Items.IRON_LEGGINGS)
-                                        .weight(3)
-                                        .apply(EnchantWithLevelsLootFunction.builder(registries, UniformLootNumberProvider.create(10.0F, 29.0F)))
-                        )
-                        .with(
-                                ItemEntry.builder(Items.IRON_HELMET)
-                                        .weight(3)
-                                        .apply(EnchantWithLevelsLootFunction.builder(registries, UniformLootNumberProvider.create(10.0F, 29.0F)))
-                        )
-                        .with(
-                                ItemEntry.builder(Items.IRON_PICKAXE)
-                                        .weight(3)
-                                        .apply(EnchantWithLevelsLootFunction.builder(registries, UniformLootNumberProvider.create(10.0F, 29.0F)))
-                        )
-                        .with(
-                                ItemEntry.builder(Items.IRON_SHOVEL)
-                                        .weight(3)
-                                        .apply(EnchantWithLevelsLootFunction.builder(registries, UniformLootNumberProvider.create(10.0F, 29.0F)))
-                        )
+                        .with(ItemEntry.builder(Items.BOOK).weight(5).apply(EnchantWithLevelsLootFunction.builder(registries, UniformLootNumberProvider.create(25.0F, 30.0F))))
+                        .with(ItemEntry.builder(Items.BOOK).weight(5).apply(EnchantWithLevelsLootFunction.builder(registries, UniformLootNumberProvider.create(25.0F, 30.0F))))
                 );
     }
 }
