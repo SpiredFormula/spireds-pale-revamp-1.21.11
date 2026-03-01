@@ -3,13 +3,13 @@
 	"id": "spireds-pale-revamp",
 	"version": "${version}",
 	"name": "Spired's Pale Revamp",
-	"description": "A minecraft mod that redesigns the pale garden biome to act more like the deep dark",
+	"description": "Spired's Pale Revamp is a mod that redesigns the pale garden biome by making it a more dangerous place during night but also very rewarding.",
 	"authors": [
 		"Spired"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/SpiredFormula/spireds-pale-revamp-1.21.11"
+		"homepage": "https://github.com/SpiredFormula/spireds-pale-revamp",
+		"sources": "https://github.com/SpiredFormula/spireds-pale-revamp"
 	},
 	"license": "MIT",
 	"icon": "assets/spireds-pale-revamp/icon.png",
