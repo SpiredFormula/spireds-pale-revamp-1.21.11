@@ -1,8 +1,8 @@
-Spired's Pale Revamp is a mod that redesigns the pale garden biome to act more like the deep dark
-by making it a more dangerous place during night but also very rewarding.
 
 <img src="img/mod_title.png" width="650" height="343">
 
+Spired's Pale Revamp is a mod that redesigns the pale garden biome by making it 
+a more dangerous place during night but also very rewarding.
 ### Features and Changes
 
 4 New structures
@@ -23,6 +23,8 @@ New explorer map trade from the Cartographer Villagers for a pale explorer map w
 
 The Creaking is a lot more dangerous and deals significantly more damage 
 
+Creaking hearts now damage the player if they break them during the day
+
 Mobs no longer spawn in the pale garden biome
 
 ### Planed Features
@@ -30,7 +32,7 @@ Mobs no longer spawn in the pale garden biome
 - More Structures
 - Unique items that can be found from loot or crafted
 - Larger Pale Garden generation (currently looking into this)
-- Punish the Player for destroying creaking hearts during the day
+- A rework on how creaking hearts punish the player for breaking them during the day
 
 ### Further Notes
 

@@ -3,7 +3,9 @@
 	"package": "spired.spiredspalerevamp.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"CreakingEntityMixin"
+		"CreakingEntityMixin",
+		"CreakingHeartBlockEntityMixin",
+		"BlockEntiyMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
