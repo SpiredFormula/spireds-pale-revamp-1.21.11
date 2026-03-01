@@ -15,7 +15,7 @@ Pale Garden fog (can be turned off in the config menu)
 
 <img src="img/pale_fog.png" width="650" height="343">
 
-New chest called the Pale Chest a chest which's contents cannot be accessed during the day
+New chest called Pale Chest. Its contents cannot be accessed during the day
 
 <img src="img/pale_chest.png" width="650" height="343">
 
