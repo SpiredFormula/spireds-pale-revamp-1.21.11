@@ -19,7 +19,7 @@ New chest called the Pale Chest a chest which's contents cannot be accessed duri
 
 <img src="img/2026-03-01_17.32.59.png" width="650" height="343">
 
-New explorer map trade from the Cartographer Villagers for a pale explorer map which locates Pale Ruins
+New explorer map trade from Cartographer Villagers for a pale explorer map which locates Pale Ruins
 
 The Creaking is a lot more dangerous and deals significantly more damage 
 
