@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "spred.spiredspalerevamp.mixin.client",
+	"package": "spired.spiredspalerevamp.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"ExampleClientMixin"
+		"FogRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

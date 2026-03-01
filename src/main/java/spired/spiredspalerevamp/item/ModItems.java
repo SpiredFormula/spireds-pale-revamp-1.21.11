@@ -1,0 +1,40 @@
+package spired.spiredspalerevamp.item;
+
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.item.*;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
+import spired.spiredspalerevamp.SpiredsPaleRevamp;
+import spired.spiredspalerevamp.block.ModBlocks;
+
+import java.util.function.Function;
+
+public class ModItems {
+
+
+    // Create creative tab
+    public static RegistryKey<ItemGroup> SPIREDS_PALE_REVAMP_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(SpiredsPaleRevamp.MOD_ID, "spireds_pale_revamp_group"));
+    public static final ItemGroup SPIREDS_PALE_REVAMP_GROUP = FabricItemGroup.builder().icon(() -> new ItemStack(Items.CREAKING_HEART)).displayName(Text.translatable("spiredsPaleRevampGroup.spireds-pale-revamp")).build();
+
+    private static Item registerItem(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
+        // Creates the Resource Key
+        RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(SpiredsPaleRevamp.MOD_ID, name));
+        // Create the item instance
+        Item item = itemFactory.apply(settings.registryKey(itemKey));
+        // Registers the item
+        Registry.register(Registries.ITEM, itemKey, item);
+        return item;
+    }
+
+    public static void initialize( ){
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(itemGroup -> {
+            itemGroup.addAfter( Items.ENDER_CHEST, ModBlocks.PALE_CHEST.asItem());
+        });
+
+    }
+}
