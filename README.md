@@ -1,8 +1,12 @@
-
 <img src="img/mod_title.png" width="650" height="343">
 
 Spired's Pale Revamp is a mod that redesigns the pale garden biome by making it 
 a more dangerous place during night but also very rewarding.
+
+### Downloads
+[Curseforge](https://www.curseforge.com/minecraft/mc-mods/spireds-pale-revamp)
+
+[Modrinth](https://modrinth.com/mod/spireds-pale-revamp)
 ### Features and Changes
 
 4 New structures
