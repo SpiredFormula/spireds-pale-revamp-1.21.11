@@ -58,11 +58,17 @@ public class PaleChestBlockEntityRenderer<T extends BlockEntity & LidOpenable> e
     ){
         super.updateRenderState(blockEntity, chestBlockEntityRenderState, f, vec3d, crumblingOverlayCommand);
 
-        BlockState state = blockEntity.getWorld().getBlockState(blockEntity.getPos());
+        if (blockEntity.getWorld() != null) {
+            BlockState state = blockEntity.getWorld().getBlockState(blockEntity.getPos());
+            if(state.getBlock() instanceof PaleChestBlock){
+                openable = state.get(PaleChestBlock.OPENABLE) == true;
+            }
 
-        if(state != null){
-            openable = state.get(PaleChestBlock.OPENABLE) == true;
         }
+
+
+
+
 
     }
 
